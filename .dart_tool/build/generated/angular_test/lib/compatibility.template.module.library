@@ -1,0 +1,11 @@
+true
+angular_test|lib/compatibility.dart
+angular|lib/angular.dart
+angular|lib/experimental.dart
+meta|lib/meta.dart
+angular|lib/angular.template.dart
+angular|lib/experimental.template.dart
+angular_test|lib/src/frontend/bed.template.dart
+angular_test|lib/src/frontend/fixture.template.dart
+
+

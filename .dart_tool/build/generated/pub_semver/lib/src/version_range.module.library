@@ -1,0 +1,7 @@
+false
+pub_semver|lib/src/utils.dart
+pub_semver|lib/src/version.dart
+pub_semver|lib/src/version_constraint.dart
+pub_semver|lib/src/version_union.dart
+
+

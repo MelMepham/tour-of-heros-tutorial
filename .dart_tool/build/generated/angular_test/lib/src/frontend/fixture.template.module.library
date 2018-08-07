@@ -1,0 +1,10 @@
+false
+angular_test|lib/src/frontend/fixture.dart
+angular|lib/angular.dart
+angular_test|lib/src/frontend/bed.dart
+angular_test|lib/src/frontend/stabilizer.dart
+angular_test|lib/src/frontend/bed.template.dart
+angular|lib/angular.template.dart
+angular_test|lib/src/frontend/stabilizer.template.dart
+
+

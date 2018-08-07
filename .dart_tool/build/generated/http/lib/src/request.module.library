@@ -1,0 +1,7 @@
+false
+http_parser|lib/http_parser.dart
+http|lib/src/base_request.dart
+http|lib/src/byte_stream.dart
+http|lib/src/utils.dart
+
+

@@ -1,0 +1,9 @@
+false
+path|lib/path.dart
+package_resolver|lib/src/package_config_resolver.dart
+package_resolver|lib/src/package_resolver.dart
+package_resolver|lib/src/package_root_resolver.dart
+package_resolver|lib/src/sync_package_resolver.dart
+package_resolver|lib/src/utils.dart
+
+

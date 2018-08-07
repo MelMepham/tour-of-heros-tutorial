@@ -1,0 +1,7 @@
+false
+collection|lib/collection.dart
+pub_semver|lib/src/patterns.dart
+pub_semver|lib/src/version_constraint.dart
+pub_semver|lib/src/version_range.dart
+
+

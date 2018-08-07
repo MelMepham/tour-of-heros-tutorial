@@ -1,0 +1,4 @@
+library asset_angular_app_lib_app_component.css.shim.dart;
+
+
+final List<dynamic> styles = ['.selected._ngcontent-%ID%{background-color:#CFD8DC!important;color:white;}.heroes._ngcontent-%ID%{margin:0 0 2em 0;list-style-type:none;padding:0;width:15em;}.heroes._ngcontent-%ID% li._ngcontent-%ID%{cursor:pointer;position:relative;left:0;background-color:#EEE;margin:.5em;padding:.3em 0;height:1.6em;border-radius:4px;}.heroes._ngcontent-%ID% li.selected:hover._ngcontent-%ID%{color:white;}.heroes._ngcontent-%ID% li:hover._ngcontent-%ID%{color:#607D8B;background-color:#EEE;left:.1em;}.heroes._ngcontent-%ID% .text._ngcontent-%ID%{position:relative;top:-3px;}.heroes._ngcontent-%ID% .badge._ngcontent-%ID%{display:inline-block;font-size:small;color:white;padding:0.8em 0.7em 0 0.7em;background-color:#607D8B;line-height:1em;position:relative;left:-1px;top:-4px;height:1.8em;margin-right:.8em;border-radius:4px 0 0 4px;}'];

@@ -1,0 +1,8 @@
+true
+angular|lib/angular.dart
+angular|lib/experimental.dart
+meta|lib/meta.dart
+angular_test|lib/src/frontend/bed.dart
+angular_test|lib/src/frontend/fixture.dart
+
+
