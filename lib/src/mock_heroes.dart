@@ -1,7 +1,7 @@
 import 'hero.dart';
 
 final mockHeroes = <Hero>[
-  Hero(11, 'Mr. Nice'),
+  Hero(11, 'Mel-o-Sauras'),
   Hero(12, 'Narco'),
   Hero(13, 'Bombasto'),
   Hero(14, 'Celeritas'),

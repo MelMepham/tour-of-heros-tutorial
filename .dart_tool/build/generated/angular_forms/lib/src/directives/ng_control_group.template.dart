@@ -7,7 +7,7 @@ import 'ng_control_group.dart';
 export 'ng_control_group.dart';
 import 'dart:async';
 import 'package:angular/angular.dart';
-import '../model.dart' show ControlGroup;
+import '../model.dart' show AbstractControlGroup;
 import '../validators.dart' show NG_VALIDATORS;
 import 'control_container.dart' show ControlContainer;
 import 'form_interface.dart' show Form;

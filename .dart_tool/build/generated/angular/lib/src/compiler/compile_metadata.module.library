@@ -7,6 +7,7 @@ angular|lib/src/core/metadata/visibility.dart
 angular|lib/src/compiler/analyzed_class.dart
 angular|lib/src/compiler/compiler_utils.dart
 angular|lib/src/compiler/expression_parser/ast.dart
+angular|lib/src/compiler/output/convert.dart
 angular|lib/src/compiler/output/output_ast.dart
 angular|lib/src/compiler/selector.dart
 

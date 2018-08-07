@@ -10,6 +10,7 @@ import 'src/mock_heroes.dart';
     directives: [coreDirectives, formDirectives],
     styleUrls: ['app_component.css'],
 )
+
 class AppComponent {
   final title = 'Tour of Heroes';
   List<Hero> heroes = mockHeroes;

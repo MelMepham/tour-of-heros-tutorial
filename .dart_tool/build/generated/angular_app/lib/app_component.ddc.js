@@ -1,9 +1,9 @@
-define(['dart_sdk', 'packages/angular_app/src/mock_heroes', 'packages/angular_app/src/hero'], function(dart_sdk, mock_heroes, hero) {
+define(['dart_sdk', 'packages/angular_app/src/hero'], function(dart_sdk, hero) {
   'use strict';
   const core = dart_sdk.core;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const src__mock_heroes = mock_heroes.src__mock_heroes;
+  const src__mock_heroes = hero.src__mock_heroes;
   const src__hero = hero.src__hero;
   const _root = Object.create(null);
   const app_component = Object.create(_root);
@@ -52,7 +52,7 @@ define(['dart_sdk', 'packages/angular_app/src/mock_heroes', 'packages/angular_ap
   }));
   dart.trackLibraries("packages/angular_app/app_component.ddc", {
     "package:angular_app/app_component.dart": app_component
-  }, '{"version":3,"sourceRoot":"","sources":["app_component.dart"],"names":[],"mappings":";;;;;;;;;;;IAaQ;;;;;;IACK;;;;;;IACN;;;;;;aACS,IAAS;YAAK,cAAQ,GAAG,IAAI;;;;IAHrC,WAAK,GAAG;IACH,YAAM,GAAG,2BAAU;IACzB,cAAQ;EAGf","file":"app_component.ddc.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["app_component.dart"],"names":[],"mappings":";;;;;;;;;;;IAcQ;;;;;;IACK;;;;;;IACN;;;;;;aACS,IAAS;YAAK,cAAQ,GAAG,IAAI;;;;IAHrC,WAAK,GAAG;IACH,YAAM,GAAG,2BAAU;IACzB,cAAQ;EAGf","file":"app_component.ddc.js"}');
   // Exports:
   return {
     app_component: app_component

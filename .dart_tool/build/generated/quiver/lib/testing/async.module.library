@@ -1,5 +1,4 @@
 true
-dart2_constant|lib/core.dart
 quiver|lib/time.dart
 
 quiver|lib/testing/src/async/fake_async.dart

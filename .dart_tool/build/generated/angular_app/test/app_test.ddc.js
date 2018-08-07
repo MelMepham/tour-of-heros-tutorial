@@ -24,7 +24,7 @@ define(['dart_sdk', 'packages/angular_app/app_component.template', 'packages/ang
   };
   dart.trackLibraries("test/app_test.ddc", {
     "app_test.dart": app_test
-  }, '{"version":3,"sourceRoot":"","sources":["app_test.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;AAQE,QAAM,UACF,4BAAS,aAAa,+BAAkB,8CAAqB;AACjE,QAA4B;AAE5B,eAAK,CAAC;AACJ,aAAO,IAAG,MAAM,OAAO,OAAO;IAChC;AAEA,kBAAQ,CAAC,uEAAqB;EAehC","file":"app_test.ddc.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["app_test.dart"],"names":[],"mappings":";;;;;;QAS2C,wBAAE;;;;;;;;;;;AAD3C,QAAM,UACF,4BAAS,aAAa,+BAAe,AAAG,wBAAD,sBAAsB;AACjE,QAA4B;AAE5B,eAAK,CAAC;AACJ,aAAO,IAAG,MAAM,OAAO,OAAO;IAChC;AAEA,kBAAQ,CAAC,uEAAqB;EAehC","file":"app_test.ddc.js"}');
   // Exports:
   return {
     app_test: app_test

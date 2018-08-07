@@ -1,5 +1,4 @@
 true
-dart2_constant|lib/core.dart
 meta|lib/meta.dart
 
 quiver|lib/src/time/clock.dart

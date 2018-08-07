@@ -6,7 +6,7 @@
 import 'ng_form_model.dart';
 export 'ng_form_model.dart';
 import 'package:angular/angular.dart';
-import '../model.dart' show ControlGroup;
+import '../model.dart' show AbstractControlGroup;
 import '../validators.dart' show Validators, NG_VALIDATORS;
 import 'abstract_form.dart' show AbstractForm;
 import 'control_container.dart' show ControlContainer;

@@ -13,7 +13,7 @@ define(['dart_sdk', 'packages/angular_app/app_component.template', 'packages/ang
   };
   dart.trackLibraries("web/main.ddc", {
     "main.dart": main
-  }, '{"version":3,"sourceRoot":"","sources":["main.dart"],"names":[],"mappings":";;;;;;;;;;;AAIE,8BAAM,+BAAI,8CAAqB;EACjC","file":"main.ddc.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["main.dart"],"names":[],"mappings":";;;;;QAIS,wBAAE;;;;;;AAAT,8BAAM,+BAAC,AAAG,wBAAD,sBAAsB;EACjC","file":"main.ddc.js"}');
   // Exports:
   return {
     main: main
