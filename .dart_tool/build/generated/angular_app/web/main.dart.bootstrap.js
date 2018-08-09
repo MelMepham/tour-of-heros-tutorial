@@ -82,6 +82,7 @@ let modulePaths = {
  "packages/path/path": "packages/path/path.ddc",
  "packages/source_span/source_span": "packages/source_span/source_span.ddc",
  "packages/stack_trace/stack_trace": "packages/stack_trace/stack_trace.ddc",
+ "packages/stream_transform/stream_transform": "packages/stream_transform/stream_transform.ddc",
  "packages/string_scanner/string_scanner": "packages/string_scanner/string_scanner.ddc",
  "packages/typed_data/typed_buffers": "packages/typed_data/typed_buffers.ddc",
  "packages/typed_data/typed_data": "packages/typed_data/typed_data.ddc",

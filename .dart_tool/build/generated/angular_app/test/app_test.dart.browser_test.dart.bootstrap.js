@@ -98,6 +98,7 @@ let modulePaths = {
  "packages/source_span/source_span": "packages/source_span/source_span.ddc",
  "packages/stack_trace/stack_trace": "packages/stack_trace/stack_trace.ddc",
  "packages/stream_channel/stream_channel": "packages/stream_channel/stream_channel.ddc",
+ "packages/stream_transform/stream_transform": "packages/stream_transform/stream_transform.ddc",
  "packages/string_scanner/string_scanner": "packages/string_scanner/string_scanner.ddc",
  "packages/term_glyph/term_glyph": "packages/term_glyph/term_glyph.ddc",
  "packages/test/bootstrap/browser": "packages/test/bootstrap/browser.ddc",
