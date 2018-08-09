@@ -16,7 +16,6 @@ import 'hero_service.dart';
 )
 class HeroListComponent implements OnInit{
 
-  final title = 'Tour of Heroes';
   final HeroService _heroService;
 
   List<Hero> heroes;

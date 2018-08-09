@@ -40,7 +40,7 @@ let modulePaths = {
  "packages/angular/src/core/zone/ng_zone": "packages/angular/src/core/zone/ng_zone.ddc",
  "packages/angular_app/app_component": "packages/angular_app/app_component.ddc",
  "packages/angular_app/app_component.template": "packages/angular_app/app_component.template.ddc",
- "packages/angular_app/src/hero": "packages/angular_app/src/hero.ddc",
+ "packages/angular_app/src/dashboard_component": "packages/angular_app/src/dashboard_component.ddc",
  "packages/angular_forms/angular_forms": "packages/angular_forms/angular_forms.ddc",
  "packages/angular_forms/angular_forms.template": "packages/angular_forms/angular_forms.template.ddc",
  "packages/angular_forms/src/directives": "packages/angular_forms/src/directives.ddc",
