@@ -1,1 +1,1 @@
-{"p":["angular_app","lib/app_component.dart"],"s":[["angular_app","lib/app_component.dart"]],"d":[["angular","lib/angular.dart"],["angular_forms","lib/angular_forms.dart"],["angular_app","lib/src/hero.dart"]]}
+{"p":["angular_app","lib/app_component.dart"],"s":[["angular_app","lib/app_component.dart"]],"d":[["angular","lib/angular.dart"],["angular_router","lib/angular_router.dart"],["angular_app","lib/src/hero.dart"]]}

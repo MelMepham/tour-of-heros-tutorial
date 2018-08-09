@@ -28,9 +28,9 @@ define(['dart_sdk', 'packages/async/async'], function(dart_sdk, async) {
   const src__delegating_stream_channel = Object.create(_root);
   const src__transformer__typed = Object.create(_root);
   const src__stream_channel_transformer = Object.create(_root);
+  const src__close_guarantee_channel = Object.create(_root);
   const src__guarantee_channel = Object.create(_root);
   const stream_channel = Object.create(_root);
-  const src__close_guarantee_channel = Object.create(_root);
   const $_set = dartx._set;
   const $putIfAbsent = dartx.putIfAbsent;
   const $_get = dartx._get;
@@ -787,10 +787,130 @@ define(['dart_sdk', 'packages/async/async'], function(dart_sdk, async) {
   });
   src__stream_channel_transformer.StreamChannelTransformer = src__stream_channel_transformer.StreamChannelTransformer$();
   dart.addTypeTests(src__stream_channel_transformer.StreamChannelTransformer, _is_StreamChannelTransformer_default);
+  const _stream = Symbol('_stream');
   const _sink = Symbol('_sink');
-  const _streamController = Symbol('_streamController');
-  const _subscription = Symbol('_subscription');
   const _disconnected = Symbol('_disconnected');
+  const _subscription = Symbol('_subscription');
+  const _is_CloseGuaranteeChannel_default = Symbol('_is_CloseGuaranteeChannel_default');
+  src__close_guarantee_channel.CloseGuaranteeChannel$ = dart.generic(T => {
+    let _CloseGuaranteeSinkOfT = () => (_CloseGuaranteeSinkOfT = dart.constFn(src__close_guarantee_channel._CloseGuaranteeSink$(T)))();
+    let _CloseGuaranteeStreamOfT = () => (_CloseGuaranteeStreamOfT = dart.constFn(src__close_guarantee_channel._CloseGuaranteeStream$(T)))();
+    let StreamSubscriptionOfT = () => (StreamSubscriptionOfT = dart.constFn(async$.StreamSubscription$(T)))();
+    class CloseGuaranteeChannel extends stream_channel.StreamChannelMixin$(T) {
+      get stream() {
+        return this[_stream];
+      }
+      get sink() {
+        return this[_sink];
+      }
+      get [_subscription]() {
+        return this[_subscription$];
+      }
+      set [_subscription](value) {
+        this[_subscription$] = StreamSubscriptionOfT()._check(value);
+      }
+    }
+    (CloseGuaranteeChannel.new = function(innerStream, innerSink) {
+      this[_stream] = null;
+      this[_sink] = null;
+      this[_subscription$] = null;
+      this[_disconnected] = false;
+      this[_sink] = new (_CloseGuaranteeSinkOfT()).new(innerSink, this);
+      this[_stream] = new (_CloseGuaranteeStreamOfT()).new(innerStream, this);
+    }).prototype = CloseGuaranteeChannel.prototype;
+    dart.addTypeTests(CloseGuaranteeChannel);
+    CloseGuaranteeChannel.prototype[_is_CloseGuaranteeChannel_default] = true;
+    const _subscription$ = Symbol("CloseGuaranteeChannel._subscription");
+    dart.setGetterSignature(CloseGuaranteeChannel, () => ({
+      __proto__: dart.getGetters(CloseGuaranteeChannel.__proto__),
+      stream: async$.Stream$(T),
+      sink: async$.StreamSink$(T)
+    }));
+    dart.setFieldSignature(CloseGuaranteeChannel, () => ({
+      __proto__: dart.getFields(CloseGuaranteeChannel.__proto__),
+      [_stream]: dart.fieldType(_CloseGuaranteeStreamOfT()),
+      [_sink]: dart.fieldType(_CloseGuaranteeSinkOfT()),
+      [_subscription]: dart.fieldType(StreamSubscriptionOfT()),
+      [_disconnected]: dart.fieldType(core.bool)
+    }));
+    return CloseGuaranteeChannel;
+  });
+  src__close_guarantee_channel.CloseGuaranteeChannel = src__close_guarantee_channel.CloseGuaranteeChannel$();
+  dart.addTypeTests(src__close_guarantee_channel.CloseGuaranteeChannel, _is_CloseGuaranteeChannel_default);
+  const _inner$2 = Symbol('_inner');
+  const _channel$ = Symbol('_channel');
+  const _is__CloseGuaranteeStream_default = Symbol('_is__CloseGuaranteeStream_default');
+  src__close_guarantee_channel._CloseGuaranteeStream$ = dart.generic(T => {
+    let StreamOfT = () => (StreamOfT = dart.constFn(async$.Stream$(T)))();
+    let CloseGuaranteeChannelOfT = () => (CloseGuaranteeChannelOfT = dart.constFn(src__close_guarantee_channel.CloseGuaranteeChannel$(T)))();
+    class _CloseGuaranteeStream extends async$.Stream$(T) {
+      listen(onData, opts) {
+        let onError = opts && 'onError' in opts ? opts.onError : null;
+        let onDone = opts && 'onDone' in opts ? opts.onDone : null;
+        let cancelOnError = opts && 'cancelOnError' in opts ? opts.cancelOnError : null;
+        if (dart.test(this[_channel$][_disconnected])) {
+          onData = null;
+          onError = null;
+        }
+        let subscription = this[_inner$2].listen(onData, {onError: onError, onDone: onDone, cancelOnError: cancelOnError});
+        if (!dart.test(this[_channel$][_disconnected])) {
+          this[_channel$][_subscription] = subscription;
+        }
+        return subscription;
+      }
+    }
+    (_CloseGuaranteeStream.new = function(inner, channel) {
+      this[_inner$2] = inner;
+      this[_channel$] = channel;
+      _CloseGuaranteeStream.__proto__.new.call(this);
+    }).prototype = _CloseGuaranteeStream.prototype;
+    dart.addTypeTests(_CloseGuaranteeStream);
+    _CloseGuaranteeStream.prototype[_is__CloseGuaranteeStream_default] = true;
+    dart.setMethodSignature(_CloseGuaranteeStream, () => ({
+      __proto__: dart.getMethods(_CloseGuaranteeStream.__proto__),
+      listen: dart.fnType(async$.StreamSubscription$(T), [dart.fnType(dart.void, [T])], {onError: core.Function, onDone: VoidTovoid(), cancelOnError: core.bool})
+    }));
+    dart.setFieldSignature(_CloseGuaranteeStream, () => ({
+      __proto__: dart.getFields(_CloseGuaranteeStream.__proto__),
+      [_inner$2]: dart.finalFieldType(StreamOfT()),
+      [_channel$]: dart.finalFieldType(CloseGuaranteeChannelOfT())
+    }));
+    return _CloseGuaranteeStream;
+  });
+  src__close_guarantee_channel._CloseGuaranteeStream = src__close_guarantee_channel._CloseGuaranteeStream$();
+  dart.addTypeTests(src__close_guarantee_channel._CloseGuaranteeStream, _is__CloseGuaranteeStream_default);
+  const _is__CloseGuaranteeSink_default = Symbol('_is__CloseGuaranteeSink_default');
+  src__close_guarantee_channel._CloseGuaranteeSink$ = dart.generic(T => {
+    let CloseGuaranteeChannelOfT = () => (CloseGuaranteeChannelOfT = dart.constFn(src__close_guarantee_channel.CloseGuaranteeChannel$(T)))();
+    class _CloseGuaranteeSink extends src__delegate__stream_sink.DelegatingStreamSink$(T) {
+      close() {
+        let done = super.close();
+        this[_channel$][_disconnected] = true;
+        if (this[_channel$][_subscription] != null) {
+          this[_channel$][_subscription].onData(null);
+          this[_channel$][_subscription].onError(null);
+        }
+        return done;
+      }
+    }
+    (_CloseGuaranteeSink.new = function(inner, channel) {
+      this[_channel$] = channel;
+      _CloseGuaranteeSink.__proto__.new.call(this, inner);
+    }).prototype = _CloseGuaranteeSink.prototype;
+    dart.addTypeTests(_CloseGuaranteeSink);
+    _CloseGuaranteeSink.prototype[_is__CloseGuaranteeSink_default] = true;
+    dart.setFieldSignature(_CloseGuaranteeSink, () => ({
+      __proto__: dart.getFields(_CloseGuaranteeSink.__proto__),
+      [_channel$]: dart.finalFieldType(CloseGuaranteeChannelOfT())
+    }));
+    return _CloseGuaranteeSink;
+  });
+  src__close_guarantee_channel._CloseGuaranteeSink = src__close_guarantee_channel._CloseGuaranteeSink$();
+  dart.addTypeTests(src__close_guarantee_channel._CloseGuaranteeSink, _is__CloseGuaranteeSink_default);
+  const _sink$ = Symbol('_sink');
+  const _streamController = Symbol('_streamController');
+  const _subscription$ = Symbol('_subscription');
+  const _disconnected$ = Symbol('_disconnected');
   const _onStreamDisconnected = Symbol('_onStreamDisconnected');
   const _onSinkDisconnected = Symbol('_onSinkDisconnected');
   const _is_GuaranteeChannel_default = Symbol('_is_GuaranteeChannel_default');
@@ -804,28 +924,28 @@ define(['dart_sdk', 'packages/async/async'], function(dart_sdk, async) {
         return this[_streamController].stream;
       }
       get sink() {
-        return this[_sink];
+        return this[_sink$];
       }
       [_onSinkDisconnected]() {
-        this[_disconnected] = true;
-        if (this[_subscription] != null) this[_subscription].cancel();
+        this[_disconnected$] = true;
+        if (this[_subscription$] != null) this[_subscription$].cancel();
         this[_streamController].close();
       }
     }
     (GuaranteeChannel.new = function(innerStream, innerSink, opts) {
       let allowSinkErrors = opts && 'allowSinkErrors' in opts ? opts.allowSinkErrors : true;
-      this[_sink] = null;
+      this[_sink$] = null;
       this[_streamController] = null;
-      this[_subscription] = null;
-      this[_disconnected] = false;
-      this[_sink] = new (_GuaranteeSinkOfT()).new(innerSink, this, {allowErrors: allowSinkErrors});
+      this[_subscription$] = null;
+      this[_disconnected$] = false;
+      this[_sink$] = new (_GuaranteeSinkOfT()).new(innerSink, this, {allowErrors: allowSinkErrors});
       if (dart.test(innerStream.isBroadcast)) {
         innerStream = innerStream.transform(T, new (SingleSubscriptionTransformerOfT$T()).new());
       }
       this[_streamController] = StreamControllerOfT().new({onListen: dart.fn(() => {
-          if (dart.test(this[_disconnected])) return;
-          this[_subscription] = innerStream.listen(dart.bind(this[_streamController], 'add'), {onError: dart.bind(this[_streamController], 'addError'), onDone: dart.fn(() => {
-              this[_sink][_onStreamDisconnected]();
+          if (dart.test(this[_disconnected$])) return;
+          this[_subscription$] = innerStream.listen(dart.bind(this[_streamController], 'add'), {onError: dart.bind(this[_streamController], 'addError'), onDone: dart.fn(() => {
+              this[_sink$][_onStreamDisconnected]();
               this[_streamController].close();
             }, VoidToNull())});
         }, VoidToNull()), sync: true});
@@ -843,17 +963,17 @@ define(['dart_sdk', 'packages/async/async'], function(dart_sdk, async) {
     }));
     dart.setFieldSignature(GuaranteeChannel, () => ({
       __proto__: dart.getFields(GuaranteeChannel.__proto__),
-      [_sink]: dart.fieldType(_GuaranteeSinkOfT()),
+      [_sink$]: dart.fieldType(_GuaranteeSinkOfT()),
       [_streamController]: dart.fieldType(StreamControllerOfT()),
-      [_subscription]: dart.fieldType(StreamSubscriptionOfT()),
-      [_disconnected]: dart.fieldType(core.bool)
+      [_subscription$]: dart.fieldType(StreamSubscriptionOfT()),
+      [_disconnected$]: dart.fieldType(core.bool)
     }));
     return GuaranteeChannel;
   });
   src__guarantee_channel.GuaranteeChannel = src__guarantee_channel.GuaranteeChannel$();
   dart.addTypeTests(src__guarantee_channel.GuaranteeChannel, _is_GuaranteeChannel_default);
-  const _inner$2 = Symbol('_inner');
-  const _channel$ = Symbol('_channel');
+  const _inner$3 = Symbol('_inner');
+  const _channel$0 = Symbol('_channel');
   const _allowErrors = Symbol('_allowErrors');
   const _doneCompleter = Symbol('_doneCompleter');
   const _closed$ = Symbol('_closed');
@@ -880,8 +1000,8 @@ define(['dart_sdk', 'packages/async/async'], function(dart_sdk, async) {
         if (dart.test(this[_inAddStream$])) {
           dart.throw(new core.StateError.new("Cannot add event while adding stream."));
         }
-        if (dart.test(this[_disconnected])) return;
-        this[_inner$2].add(data);
+        if (dart.test(this[_disconnected$])) return;
+        this[_inner$3].add(data);
       }
       addError(error, stackTrace) {
         if (stackTrace === void 0) stackTrace = null;
@@ -889,19 +1009,19 @@ define(['dart_sdk', 'packages/async/async'], function(dart_sdk, async) {
         if (dart.test(this[_inAddStream$])) {
           dart.throw(new core.StateError.new("Cannot add event while adding stream."));
         }
-        if (dart.test(this[_disconnected])) return;
+        if (dart.test(this[_disconnected$])) return;
         this[_addError](error, stackTrace);
       }
       [_addError](error, stackTrace) {
         if (stackTrace === void 0) stackTrace = null;
         if (dart.test(this[_allowErrors])) {
-          this[_inner$2].addError(error, stackTrace);
+          this[_inner$3].addError(error, stackTrace);
           return;
         }
         this[_doneCompleter].completeError(error, stackTrace);
         this[_onStreamDisconnected]();
-        this[_channel$][_onSinkDisconnected]();
-        this[_inner$2].close().catchError(dart.fn(_ => {
+        this[_channel$0][_onSinkDisconnected]();
+        this[_inner$3].close().catchError(dart.fn(_ => {
         }, dynamicToNull()));
       }
       addStream(stream) {
@@ -910,9 +1030,9 @@ define(['dart_sdk', 'packages/async/async'], function(dart_sdk, async) {
         if (dart.test(this[_inAddStream$])) {
           dart.throw(new core.StateError.new("Cannot add stream while adding stream."));
         }
-        if (dart.test(this[_disconnected])) return async$.Future.value();
+        if (dart.test(this[_disconnected$])) return async$.Future.value();
         this[_addStreamCompleter$] = async$.Completer.sync();
-        this[_addStreamSubscription$] = stream.listen(dart.bind(this[_inner$2], 'add'), {onError: dart.bind(this, _addError), onDone: dart.bind(this[_addStreamCompleter$], 'complete')});
+        this[_addStreamSubscription$] = stream.listen(dart.bind(this[_inner$3], 'add'), {onError: dart.bind(this, _addError), onDone: dart.bind(this[_addStreamCompleter$], 'complete')});
         return this[_addStreamCompleter$].future.then(dart.dynamic, dart.fn(_ => {
           this[_addStreamCompleter$] = null;
           this[_addStreamSubscription$] = null;
@@ -924,14 +1044,14 @@ define(['dart_sdk', 'packages/async/async'], function(dart_sdk, async) {
         }
         if (dart.test(this[_closed$])) return this.done;
         this[_closed$] = true;
-        if (!dart.test(this[_disconnected])) {
-          this[_channel$][_onSinkDisconnected]();
-          this[_doneCompleter].complete(this[_inner$2].close());
+        if (!dart.test(this[_disconnected$])) {
+          this[_channel$0][_onSinkDisconnected]();
+          this[_doneCompleter].complete(this[_inner$3].close());
         }
         return this.done;
       }
       [_onStreamDisconnected]() {
-        this[_disconnected] = true;
+        this[_disconnected$] = true;
         if (!dart.test(this[_doneCompleter].isCompleted)) this[_doneCompleter].complete();
         if (!dart.test(this[_inAddStream$])) return;
         this[_addStreamCompleter$].complete(this[_addStreamSubscription$].cancel());
@@ -942,12 +1062,12 @@ define(['dart_sdk', 'packages/async/async'], function(dart_sdk, async) {
     (_GuaranteeSink.new = function(inner, channel, opts) {
       let allowErrors = opts && 'allowErrors' in opts ? opts.allowErrors : true;
       this[_doneCompleter] = async$.Completer.new();
-      this[_disconnected] = false;
+      this[_disconnected$] = false;
       this[_closed$] = false;
       this[_addStreamSubscription$] = null;
       this[_addStreamCompleter$] = null;
-      this[_inner$2] = inner;
-      this[_channel$] = channel;
+      this[_inner$3] = inner;
+      this[_channel$0] = channel;
       this[_allowErrors] = allowErrors;
     }).prototype = _GuaranteeSink.prototype;
     dart.addTypeTests(_GuaranteeSink);
@@ -969,10 +1089,10 @@ define(['dart_sdk', 'packages/async/async'], function(dart_sdk, async) {
     }));
     dart.setFieldSignature(_GuaranteeSink, () => ({
       __proto__: dart.getFields(_GuaranteeSink.__proto__),
-      [_inner$2]: dart.finalFieldType(StreamSinkOfT()),
-      [_channel$]: dart.finalFieldType(GuaranteeChannelOfT()),
+      [_inner$3]: dart.finalFieldType(StreamSinkOfT()),
+      [_channel$0]: dart.finalFieldType(GuaranteeChannelOfT()),
       [_doneCompleter]: dart.finalFieldType(async$.Completer),
-      [_disconnected]: dart.fieldType(core.bool),
+      [_disconnected$]: dart.fieldType(core.bool),
       [_closed$]: dart.fieldType(core.bool),
       [_addStreamSubscription$]: dart.fieldType(StreamSubscriptionOfT()),
       [_addStreamCompleter$]: dart.fieldType(async$.Completer),
@@ -1027,126 +1147,6 @@ define(['dart_sdk', 'packages/async/async'], function(dart_sdk, async) {
   });
   stream_channel._StreamChannel = stream_channel._StreamChannel$();
   dart.addTypeTests(stream_channel._StreamChannel, _is__StreamChannel_default);
-  const _stream = Symbol('_stream');
-  const _sink$ = Symbol('_sink');
-  const _disconnected$ = Symbol('_disconnected');
-  const _subscription$ = Symbol('_subscription');
-  const _is_CloseGuaranteeChannel_default = Symbol('_is_CloseGuaranteeChannel_default');
-  src__close_guarantee_channel.CloseGuaranteeChannel$ = dart.generic(T => {
-    let _CloseGuaranteeSinkOfT = () => (_CloseGuaranteeSinkOfT = dart.constFn(src__close_guarantee_channel._CloseGuaranteeSink$(T)))();
-    let _CloseGuaranteeStreamOfT = () => (_CloseGuaranteeStreamOfT = dart.constFn(src__close_guarantee_channel._CloseGuaranteeStream$(T)))();
-    let StreamSubscriptionOfT = () => (StreamSubscriptionOfT = dart.constFn(async$.StreamSubscription$(T)))();
-    class CloseGuaranteeChannel extends stream_channel.StreamChannelMixin$(T) {
-      get stream() {
-        return this[_stream];
-      }
-      get sink() {
-        return this[_sink$];
-      }
-      get [_subscription$]() {
-        return this[_subscription];
-      }
-      set [_subscription$](value) {
-        this[_subscription] = StreamSubscriptionOfT()._check(value);
-      }
-    }
-    (CloseGuaranteeChannel.new = function(innerStream, innerSink) {
-      this[_stream] = null;
-      this[_sink$] = null;
-      this[_subscription] = null;
-      this[_disconnected$] = false;
-      this[_sink$] = new (_CloseGuaranteeSinkOfT()).new(innerSink, this);
-      this[_stream] = new (_CloseGuaranteeStreamOfT()).new(innerStream, this);
-    }).prototype = CloseGuaranteeChannel.prototype;
-    dart.addTypeTests(CloseGuaranteeChannel);
-    CloseGuaranteeChannel.prototype[_is_CloseGuaranteeChannel_default] = true;
-    const _subscription = Symbol("CloseGuaranteeChannel._subscription");
-    dart.setGetterSignature(CloseGuaranteeChannel, () => ({
-      __proto__: dart.getGetters(CloseGuaranteeChannel.__proto__),
-      stream: async$.Stream$(T),
-      sink: async$.StreamSink$(T)
-    }));
-    dart.setFieldSignature(CloseGuaranteeChannel, () => ({
-      __proto__: dart.getFields(CloseGuaranteeChannel.__proto__),
-      [_stream]: dart.fieldType(_CloseGuaranteeStreamOfT()),
-      [_sink$]: dart.fieldType(_CloseGuaranteeSinkOfT()),
-      [_subscription$]: dart.fieldType(StreamSubscriptionOfT()),
-      [_disconnected$]: dart.fieldType(core.bool)
-    }));
-    return CloseGuaranteeChannel;
-  });
-  src__close_guarantee_channel.CloseGuaranteeChannel = src__close_guarantee_channel.CloseGuaranteeChannel$();
-  dart.addTypeTests(src__close_guarantee_channel.CloseGuaranteeChannel, _is_CloseGuaranteeChannel_default);
-  const _inner$3 = Symbol('_inner');
-  const _channel$0 = Symbol('_channel');
-  const _is__CloseGuaranteeStream_default = Symbol('_is__CloseGuaranteeStream_default');
-  src__close_guarantee_channel._CloseGuaranteeStream$ = dart.generic(T => {
-    let StreamOfT = () => (StreamOfT = dart.constFn(async$.Stream$(T)))();
-    let CloseGuaranteeChannelOfT = () => (CloseGuaranteeChannelOfT = dart.constFn(src__close_guarantee_channel.CloseGuaranteeChannel$(T)))();
-    class _CloseGuaranteeStream extends async$.Stream$(T) {
-      listen(onData, opts) {
-        let onError = opts && 'onError' in opts ? opts.onError : null;
-        let onDone = opts && 'onDone' in opts ? opts.onDone : null;
-        let cancelOnError = opts && 'cancelOnError' in opts ? opts.cancelOnError : null;
-        if (dart.test(this[_channel$0][_disconnected$])) {
-          onData = null;
-          onError = null;
-        }
-        let subscription = this[_inner$3].listen(onData, {onError: onError, onDone: onDone, cancelOnError: cancelOnError});
-        if (!dart.test(this[_channel$0][_disconnected$])) {
-          this[_channel$0][_subscription$] = subscription;
-        }
-        return subscription;
-      }
-    }
-    (_CloseGuaranteeStream.new = function(inner, channel) {
-      this[_inner$3] = inner;
-      this[_channel$0] = channel;
-      _CloseGuaranteeStream.__proto__.new.call(this);
-    }).prototype = _CloseGuaranteeStream.prototype;
-    dart.addTypeTests(_CloseGuaranteeStream);
-    _CloseGuaranteeStream.prototype[_is__CloseGuaranteeStream_default] = true;
-    dart.setMethodSignature(_CloseGuaranteeStream, () => ({
-      __proto__: dart.getMethods(_CloseGuaranteeStream.__proto__),
-      listen: dart.fnType(async$.StreamSubscription$(T), [dart.fnType(dart.void, [T])], {onError: core.Function, onDone: VoidTovoid(), cancelOnError: core.bool})
-    }));
-    dart.setFieldSignature(_CloseGuaranteeStream, () => ({
-      __proto__: dart.getFields(_CloseGuaranteeStream.__proto__),
-      [_inner$3]: dart.finalFieldType(StreamOfT()),
-      [_channel$0]: dart.finalFieldType(CloseGuaranteeChannelOfT())
-    }));
-    return _CloseGuaranteeStream;
-  });
-  src__close_guarantee_channel._CloseGuaranteeStream = src__close_guarantee_channel._CloseGuaranteeStream$();
-  dart.addTypeTests(src__close_guarantee_channel._CloseGuaranteeStream, _is__CloseGuaranteeStream_default);
-  const _is__CloseGuaranteeSink_default = Symbol('_is__CloseGuaranteeSink_default');
-  src__close_guarantee_channel._CloseGuaranteeSink$ = dart.generic(T => {
-    let CloseGuaranteeChannelOfT = () => (CloseGuaranteeChannelOfT = dart.constFn(src__close_guarantee_channel.CloseGuaranteeChannel$(T)))();
-    class _CloseGuaranteeSink extends src__delegate__stream_sink.DelegatingStreamSink$(T) {
-      close() {
-        let done = super.close();
-        this[_channel$0][_disconnected$] = true;
-        if (this[_channel$0][_subscription$] != null) {
-          this[_channel$0][_subscription$].onData(null);
-          this[_channel$0][_subscription$].onError(null);
-        }
-        return done;
-      }
-    }
-    (_CloseGuaranteeSink.new = function(inner, channel) {
-      this[_channel$0] = channel;
-      _CloseGuaranteeSink.__proto__.new.call(this, inner);
-    }).prototype = _CloseGuaranteeSink.prototype;
-    dart.addTypeTests(_CloseGuaranteeSink);
-    _CloseGuaranteeSink.prototype[_is__CloseGuaranteeSink_default] = true;
-    dart.setFieldSignature(_CloseGuaranteeSink, () => ({
-      __proto__: dart.getFields(_CloseGuaranteeSink.__proto__),
-      [_channel$0]: dart.finalFieldType(CloseGuaranteeChannelOfT())
-    }));
-    return _CloseGuaranteeSink;
-  });
-  src__close_guarantee_channel._CloseGuaranteeSink = src__close_guarantee_channel._CloseGuaranteeSink$();
-  dart.addTypeTests(src__close_guarantee_channel._CloseGuaranteeSink, _is__CloseGuaranteeSink_default);
   dart.trackLibraries("packages/stream_channel/stream_channel.ddc", {
     "package:stream_channel/src/stream_channel_controller.dart": src__stream_channel_controller,
     "package:stream_channel/src/stream_channel_completer.dart": src__stream_channel_completer,
@@ -1157,10 +1157,10 @@ define(['dart_sdk', 'packages/async/async'], function(dart_sdk, async) {
     "package:stream_channel/src/delegating_stream_channel.dart": src__delegating_stream_channel,
     "package:stream_channel/src/transformer/typed.dart": src__transformer__typed,
     "package:stream_channel/src/stream_channel_transformer.dart": src__stream_channel_transformer,
+    "package:stream_channel/src/close_guarantee_channel.dart": src__close_guarantee_channel,
     "package:stream_channel/src/guarantee_channel.dart": src__guarantee_channel,
-    "package:stream_channel/stream_channel.dart": stream_channel,
-    "package:stream_channel/src/close_guarantee_channel.dart": src__close_guarantee_channel
-  }, '{"version":3,"sourceRoot":"","sources":["src/stream_channel_controller.dart","src/stream_channel_completer.dart","src/multi_channel.dart","stream_channel.dart","src/json_document_transformer.dart","src/isolate_channel.dart","src/disconnector.dart","src/delegating_stream_channel.dart","src/transformer/typed.dart","src/stream_channel_transformer.dart","src/guarantee_channel.dart","src/close_guarantee_channel.dart"],"names":[],"mappings":"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","file":"stream_channel.ddc.js"}');
+    "package:stream_channel/stream_channel.dart": stream_channel
+  }, '{"version":3,"sourceRoot":"","sources":["src/stream_channel_controller.dart","src/stream_channel_completer.dart","src/multi_channel.dart","stream_channel.dart","src/json_document_transformer.dart","src/isolate_channel.dart","src/disconnector.dart","src/delegating_stream_channel.dart","src/transformer/typed.dart","src/stream_channel_transformer.dart","src/close_guarantee_channel.dart","src/guarantee_channel.dart"],"names":[],"mappings":"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","file":"stream_channel.ddc.js"}');
   // Exports:
   return {
     src__stream_channel_controller: src__stream_channel_controller,
@@ -1172,9 +1172,9 @@ define(['dart_sdk', 'packages/async/async'], function(dart_sdk, async) {
     src__delegating_stream_channel: src__delegating_stream_channel,
     src__transformer__typed: src__transformer__typed,
     src__stream_channel_transformer: src__stream_channel_transformer,
+    src__close_guarantee_channel: src__close_guarantee_channel,
     src__guarantee_channel: src__guarantee_channel,
-    stream_channel: stream_channel,
-    src__close_guarantee_channel: src__close_guarantee_channel
+    stream_channel: stream_channel
   };
 });
 
