@@ -1,4 +1,4 @@
-define(['dart_sdk', 'packages/angular/src/core/linker/view_type', 'packages/angular/src/core/change_detection/change_detection', 'packages/angular/src/bootstrap/modules', 'packages/angular_router/src/directives/router_outlet_directive', 'packages/angular_router/src/constants', 'packages/angular_router/angular_router.template', 'packages/angular_app/src/dashboard_component', 'packages/angular_app/app_component', 'packages/angular/angular.template'], function(dart_sdk, view_type, change_detection, modules, router_outlet_directive, constants, angular_router, dashboard_component, app_component, angular) {
+define(['dart_sdk', 'packages/angular_app/app_component.css.shim', 'packages/angular/src/core/linker/view_type', 'packages/angular/src/core/change_detection/change_detection', 'packages/angular/src/bootstrap/modules', 'packages/angular_router/src/directives/router_outlet_directive', 'packages/angular_router/src/constants', 'packages/angular_router/angular_router.template', 'packages/angular_app/src/dashboard_component.css.shim', 'packages/angular_app/app_component', 'packages/http/src/base_client', 'packages/angular/angular.template'], function(dart_sdk, app_component$46css, view_type, change_detection, modules, router_outlet_directive, constants, angular_router, dashboard_component$46css, app_component, base_client, angular) {
   'use strict';
   const core = dart_sdk.core;
   const _js_helper = dart_sdk._js_helper;
@@ -6,6 +6,7 @@ define(['dart_sdk', 'packages/angular/src/core/linker/view_type', 'packages/angu
   const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
+  const app_component$46css$46shim = app_component$46css.app_component$46css$46shim;
   const src__core__linker__view_type = view_type.src__core__linker__view_type;
   const src__core__change_detection__constants = change_detection.src__core__change_detection__constants;
   const src__runtime__optimizations = change_detection.src__runtime__optimizations;
@@ -24,17 +25,19 @@ define(['dart_sdk', 'packages/angular/src/core/linker/view_type', 'packages/angu
   const src__directives__router_link_active_directive = constants.src__directives__router_link_active_directive;
   const src__directives__router_link_directive$46template = angular_router.src__directives__router_link_directive$46template;
   const angular_router$46template = angular_router.angular_router$46template;
-  const src__route_paths = dashboard_component.src__route_paths;
-  const src__routes = dashboard_component.src__routes;
-  const src__hero_service = dashboard_component.src__hero_service;
-  const src__hero_service$46template = dashboard_component.src__hero_service$46template;
-  const src__dashboard_component$46template = dashboard_component.src__dashboard_component$46template;
-  const src__hero_list_component$46template = dashboard_component.src__hero_list_component$46template;
+  const src__route_paths = dashboard_component$46css.src__route_paths;
+  const src__routes = dashboard_component$46css.src__routes;
+  const src__hero_service = dashboard_component$46css.src__hero_service;
+  const src__hero_service$46template = dashboard_component$46css.src__hero_service$46template;
+  const src__dashboard_component$46template = dashboard_component$46css.src__dashboard_component$46template;
+  const src__hero_component$46template = dashboard_component$46css.src__hero_component$46template;
+  const src__hero_list_component$46template = dashboard_component$46css.src__hero_list_component$46template;
+  const src__route_paths$46template = dashboard_component$46css.src__route_paths$46template;
   const app_component$ = app_component.app_component;
+  const src__client = base_client.src__client;
   const angular$46template = angular.angular$46template;
   const _root = Object.create(null);
   const app_component$46template = Object.create(_root);
-  const src__route_paths$46template = Object.create(_root);
   const src__routes$46template = Object.create(_root);
   const $createElement = dartx.createElement;
   const $append = dartx.append;
@@ -47,7 +50,7 @@ define(['dart_sdk', 'packages/angular/src/core/linker/view_type', 'packages/angu
   let ComponentFactoryOfAppComponent = () => (ComponentFactoryOfAppComponent = dart.constFn(src__core__linker__component_factory.ComponentFactory$(app_component$.AppComponent)))();
   dart.defineLazy(app_component$46template, {
     /*app_component$46template.styles$AppComponent*/get styles$AppComponent() {
-      return dart.constList([], dart.dynamic);
+      return [app_component$46css$46shim.styles];
     }
   });
   const _el_0 = Symbol('_el_0');
@@ -71,10 +74,13 @@ define(['dart_sdk', 'packages/angular/src/core/linker/view_type', 'packages/angu
       let parentRenderNode = this.initViewRoot(_rootEl);
       let doc = html.document;
       this[_el_0] = src__core__linker__app_view.createAndAppend(doc, "h1", parentRenderNode);
+      this.addShimE(this[_el_0]);
       this[_text_1] = html.Text.new(this.ctx.title != null ? this.ctx.title : "");
       this[_el_0][$append](this[_text_1]);
       this[_el_2] = src__core__linker__app_view.createAndAppend(doc, "nav", parentRenderNode);
+      this.addShimE(this[_el_2]);
       this[_el_3] = html.AnchorElement._check(src__core__linker__app_view.createAndAppend(doc, "a", this[_el_2]));
+      this.addShimC(this[_el_3]);
       this[_RouterLink_3_5] = new src__directives__router_link_directive$46template.RouterLinkNgCd.new(new src__directives__router_link_directive.RouterLink.new(src__router__router.Router._check(this.parentView.injectorGet(dart.wrapType(src__router__router.Router), this.viewData.parentIndex)), src__location__location.Location._check(this.parentView.injectorGet(dart.wrapType(src__location__location.Location), this.viewData.parentIndex)), null, this[_el_3]));
       this[_RouterLinkActive_3_6] = new src__directives__router_link_active_directive.RouterLinkActive.new(this[_el_3], src__router__router.Router._check(this.parentView.injectorGet(dart.wrapType(src__router__router.Router), this.viewData.parentIndex)));
       let _text_4 = html.Text.new("Dashboard");
@@ -83,12 +89,14 @@ define(['dart_sdk', 'packages/angular/src/core/linker/view_type', 'packages/angu
       let _text_5 = html.Text.new(" ");
       this[_el_2][$append](_text_5);
       this[_el_6] = html.AnchorElement._check(src__core__linker__app_view.createAndAppend(doc, "a", this[_el_2]));
+      this.addShimC(this[_el_6]);
       this[_RouterLink_6_5] = new src__directives__router_link_directive$46template.RouterLinkNgCd.new(new src__directives__router_link_directive.RouterLink.new(src__router__router.Router._check(this.parentView.injectorGet(dart.wrapType(src__router__router.Router), this.viewData.parentIndex)), src__location__location.Location._check(this.parentView.injectorGet(dart.wrapType(src__location__location.Location), this.viewData.parentIndex)), null, this[_el_6]));
       this[_RouterLinkActive_6_6] = new src__directives__router_link_active_directive.RouterLinkActive.new(this[_el_6], src__router__router.Router._check(this.parentView.injectorGet(dart.wrapType(src__router__router.Router), this.viewData.parentIndex)));
       let _text_7 = html.Text.new("Heroes");
       this[_el_6][$append](_text_7);
       this[_RouterLinkActive_6_6].links = JSArrayOfRouterLink().of([this[_RouterLink_6_5].instance]);
       this[_el_8] = src__core__linker__app_view.createAndAppend(doc, "router-outlet", parentRenderNode);
+      this.addShimE(this[_el_8]);
       this[_appEl_8] = new src__core__linker__view_container.ViewContainer.new(8, null, this, this[_el_8]);
       this[_RouterOutlet_8_8] = new src__directives__router_outlet_directive.RouterOutlet.new(src__router__router_outlet_token.RouterOutletToken._check(this.parentView.injectorGet(dart.wrapType(src__router__router_outlet_token.RouterOutletToken), this.viewData.parentIndex, null)), this[_appEl_8], src__router__router.Router._check(this.parentView.injectorGet(dart.wrapType(src__router__router.Router), this.viewData.parentIndex)), src__router_hook.RouterHook._check(this.parentView.injectorGet(dart.wrapType(src__router_hook.RouterHook), this.viewData.parentIndex, null)));
       this[_el_3][$addEventListener]("click", this.eventHandler1(html.Event, html.MouseEvent, dart.bind(this[_RouterLink_3_5].instance, 'onClick')));
@@ -158,7 +166,7 @@ define(['dart_sdk', 'packages/angular/src/core/linker/view_type', 'packages/angu
     app_component$46template.ViewAppComponent0.__proto__.new.call(this, src__core__linker__view_type.ViewType.component, new (IdentityMapOfString$dynamic()).new(), parentView, parentIndex, src__core__change_detection__constants.ChangeDetectionStrategy.CheckAlways);
     this.rootEl = html.HtmlElement._check(html.document[$createElement]("my-app"));
     let t = app_component$46template.ViewAppComponent0._renderType;
-    t == null ? app_component$46template.ViewAppComponent0._renderType = src__core__linker__app_view_utils.appViewUtils.createRenderType(dart.test(src__runtime__optimizations.isDevMode) ? "asset:angular_app/lib/app_component.dart" : null, src__core__metadata__view.ViewEncapsulation.None, app_component$46template.styles$AppComponent) : t;
+    t == null ? app_component$46template.ViewAppComponent0._renderType = src__core__linker__app_view_utils.appViewUtils.createRenderType(dart.test(src__runtime__optimizations.isDevMode) ? "asset:angular_app/lib/app_component.dart" : null, src__core__metadata__view.ViewEncapsulation.Emulated, app_component$46template.styles$AppComponent) : t;
     this.setupComponentType(app_component$46template.ViewAppComponent0._renderType);
   }).prototype = app_component$46template.ViewAppComponent0.prototype;
   dart.addTypeTests(app_component$46template.ViewAppComponent0);
@@ -206,7 +214,7 @@ define(['dart_sdk', 'packages/angular/src/core/linker/view_type', 'packages/angu
   app_component$46template._ViewAppComponentHost0 = class _ViewAppComponentHost0 extends src__core__linker__app_view.AppView$(app_component$.AppComponent) {
     get [_HeroService_0_6]() {
       if (this[__HeroService_0_6] == null) {
-        this[__HeroService_0_6] = new src__hero_service.HeroService.new();
+        this[__HeroService_0_6] = new src__hero_service.HeroService.new(src__client.Client._check(this.injectorGet(dart.wrapType(src__client.Client), this.viewData.parentIndex)));
       }
       return this[__HeroService_0_6];
     }
@@ -286,19 +294,6 @@ define(['dart_sdk', 'packages/angular/src/core/linker/view_type', 'packages/angu
     src__hero_service$46template.initReflector();
     src__routes$46template.initReflector();
   };
-  dart.defineLazy(src__route_paths$46template, {
-    /*src__route_paths$46template._visited*/get _visited() {
-      return false;
-    },
-    set _visited(_) {}
-  });
-  src__route_paths$46template.initReflector = function() {
-    if (dart.test(src__route_paths$46template._visited)) {
-      return;
-    }
-    src__route_paths$46template._visited = true;
-    angular_router$46template.initReflector();
-  };
   dart.defineLazy(src__routes$46template, {
     /*src__routes$46template._visited*/get _visited() {
       return false;
@@ -311,6 +306,7 @@ define(['dart_sdk', 'packages/angular/src/core/linker/view_type', 'packages/angu
     }
     src__routes$46template._visited = true;
     src__dashboard_component$46template.initReflector();
+    src__hero_component$46template.initReflector();
     src__hero_list_component$46template.initReflector();
     angular_router$46template.initReflector();
     src__route_paths$46template.initReflector();
@@ -318,13 +314,11 @@ define(['dart_sdk', 'packages/angular/src/core/linker/view_type', 'packages/angu
   };
   dart.trackLibraries("packages/angular_app/app_component.template.ddc", {
     "package:angular_app/app_component.template.dart": app_component$46template,
-    "package:angular_app/src/route_paths.template.dart": src__route_paths$46template,
     "package:angular_app/src/routes.template.dart": src__routes$46template
-  }, '{"version":3,"sourceRoot":"","sources":["app_component.template.dart","src/route_paths.template.dart","src/routes.template.dart"],"names":[],"mappings":"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","file":"app_component.template.ddc.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["app_component.template.dart","src/routes.template.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAwCoB,4CAAmB;YAAG,EAAS,iCAAM;;;;;;;;;;;;;;;;;;;;AAyBrD,UAAM,UAAU,WAAM;AACtB,UAA0B,mBAAmB,iBAAY,CAAC,OAAO;AACjE,UAAI,MAAc,aAAQ;AAC1B,iBAAK,GAAG,2CAAe,CAAC,GAAG,EAAE,MAAM,gBAAgB;AACnD,mBAAQ,CAAC,WAAK;AACd,mBAAO,GAAG,aAAY,CAAE,QAAG,MAAM,WAAT,QAAG,MAAM,GAAI;AACrC,iBAAK,SAAO,CAAC,aAAO;AACpB,iBAAK,GAAG,2CAAe,CAAC,GAAG,EAAE,OAAO,gBAAgB;AACpD,mBAAQ,CAAC,WAAK;AACd,iBAAK,6BAAG,2CAAe,CAAC,GAAG,EAAE,KAAK,WAAK;AACvC,mBAAQ,CAAC,WAAK;AACd,2BAAe,OAAG,oEAAsB,KAAC,qDAAmB,mCAAC,eAAU,YAAY,CAAU,yCAAM,EAAE,aAAQ,YAAY,4CAAG,eAAU,YAAY,CAAU,+CAAQ,EAAE,aAAQ,YAAY,IAAG,MAAM,WAAK;AACxM,iCAAqB,OAAG,kEAAwB,CAAC,WAAK,oCAAE,eAAU,YAAY,CAAU,yCAAM,EAAE,aAAQ,YAAY;AACpH,UAAa,UAAU,aAAY,CAAC;AACpC,iBAAK,SAAO,CAAC,OAAO;AACpB,iCAAqB,MAAM,GAAG,0BAAC,qBAAe,SAAS;AACvD,UAAa,UAAU,aAAY,CAAC;AACpC,iBAAK,SAAO,CAAC,OAAO;AACpB,iBAAK,6BAAG,2CAAe,CAAC,GAAG,EAAE,KAAK,WAAK;AACvC,mBAAQ,CAAC,WAAK;AACd,2BAAe,OAAG,oEAAsB,KAAC,qDAAmB,mCAAC,eAAU,YAAY,CAAU,yCAAM,EAAE,aAAQ,YAAY,4CAAG,eAAU,YAAY,CAAU,+CAAQ,EAAE,aAAQ,YAAY,IAAG,MAAM,WAAK;AACxM,iCAAqB,OAAG,kEAAwB,CAAC,WAAK,oCAAE,eAAU,YAAY,CAAU,yCAAM,EAAE,aAAQ,YAAY;AACpH,UAAa,UAAU,aAAY,CAAC;AACpC,iBAAK,SAAO,CAAC,OAAO;AACpB,iCAAqB,MAAM,GAAG,0BAAC,qBAAe,SAAS;AACvD,iBAAK,GAAG,2CAAe,CAAC,GAAG,EAAE,iBAAiB,gBAAgB;AAC9D,mBAAQ,CAAC,WAAK;AACd,oBAAQ,OAAG,mDAAa,CAAC,GAAG,MAAM,MAAM,WAAK;AAC7C,6BAAiB,OAAG,yDAAoB,2DAAC,eAAU,YAAY,CAAU,iEAAiB,EAAE,aAAQ,YAAY,EAAE,QAAO,cAAQ,oCAAE,eAAU,YAAY,CAAU,yCAAM,EAAE,aAAQ,YAAY,uCAAG,eAAU,YAAY,CAAU,0CAAU,EAAE,aAAQ,YAAY,EAAE;AACpQ,iBAAK,mBAAiB,CAAC,SAAS,kBAAa,wCAAC,qBAAe,SAAS;AACtE,iBAAK,mBAAiB,CAAC,SAAS,kBAAa,wCAAC,qBAAe,SAAS;AACtE,eAAI,CAAC,uDAAU;AACf,YAAO;IACT;;AAIE,UAAK,aAAc,YAAY,KAAI;AACnC,UAAM,YAAY,2BAAmB,UAAU,MAAM;AACrD,oBAAI,AAAS,8CAAY,CAAC,aAAO,EAAE,SAAS,IAAG;AAC7C,6BAAe,SAAS,WAAW,GAAG,SAAS;AAC/C,qBAAO,GAAG,SAAS;;AAErB,UAAI,UAAU,EAAE;AACd,QAAC,2BAAqB,iBAAiB,GAAG;;AAE5C,UAAM,YAAY,2BAAmB,OAAO,MAAM;AAClD,oBAAI,AAAS,8CAAY,CAAC,aAAO,EAAE,SAAS,IAAG;AAC7C,6BAAe,SAAS,WAAW,GAAG,SAAS;AAC/C,qBAAO,GAAG,SAAS;;AAErB,UAAI,UAAU,EAAE;AACd,mCAAqB,iBAAiB,GAAG;AACzC,cAAK,AAAU,kBAAe,IAAI,IAAE,OAAO;AACzC,UAAC,uBAAiB,OAAO,GAAG,kBAAe,IAAI;;;AAGnD,qBAAM,8CAAqB,eAAe,KAAI,UAAU,EAAG;AACzD,+BAAiB,SAAS;;AAE5B,oBAAQ,2BAA2B;AACnC,2BAAe,kBAAkB,CAAC,MAAM,WAAK;AAC7C,2BAAe,kBAAkB,CAAC,MAAM,WAAK;AAC7C,qBAAK,8CAAqB,eAAe,GAAE;AACzC,YAAI,UAAU,EAAE;AACd,qCAAqB,gBAAgB;AACrC,qCAAqB,gBAAgB;;;IAG3C;;AAIE,4BAAQ;;AACR,2BAAe,SAAS,YAAY;AACpC,iCAAqB,YAAY;AACjC,2BAAe,SAAS,YAAY;AACpC,iCAAqB,YAAY;AACjC,6BAAiB,YAAY;IAC/B;;6DAtFkB,UAA2B,EAAE,WAAe;IAf9C,WAAK;IACR,aAAO;IACJ,WAAK;IACC,WAAK;IACJ,qBAAe;IACb,2BAAqB;IACxB,WAAK;IACJ,qBAAe;IACb,2BAAqB;IAC9B,WAAK;IACP,cAAQ;IACD,uBAAiB;IAC/B,aAAO;IACP,aAAO;AAEoD,wEAAM,qCAAgB,UAAU,EAAE,2CAAI,UAAU,EAAE,WAAW,EAAE,8DAAuB,YAAY;AAClK,eAAM,2BAAG,AAAQ,aAAQ,gBAAc,CAAC;AACxC,kEAAW;gBAAX,sDAAW,GAAK,AAAS,8CAAY,iBAAiB,CAAE,UAAS,qCAAS,IAAG,6CAA6C,MAAO,2CAAiB,SAAS,EAAE,4CAAmB;AAChL,2BAAkB,CAAC,sDAAW;EAChC;;;;;;;;;;;;;;;;;;;;;;;;;;MAL2B,sDAAW;;;;;gEA0FgB,UAA2B,EAAE,WAAe;AAClG,eAAO,8CAAiB,CAAC,UAAU,EAAE,WAAW;EAClD;;MAEoB,gDAAuB;YAAG;;;;;;;;;AAQ1C,UAAK,uBAAsB,IAAI,MAAO;AACpC,QAAC,uBAAiB,OAAG,iCAAoB,2BAAC,gBAAgB,CAAU,iCAAM,EAAE,aAAa,YAAY;;AAEvG,YAAO,wBAAsB;IAC/B;;AAIE,uBAAW,OAAG,8CAAiB,CAAC,MAAM;AACtC,iBAAM,GAAG,iBAAW,OAAO;AAC3B,6BAAiB,OAAG,+BAAoB;AACxC,uBAAW,OAAO,CAAC,uBAAiB,EAAE,qBAAgB;AACtD,gBAAK,CAAC,WAAM;AACZ,iBAAO,kCAAY,CAAC,GAAG,MAAM,WAAM,EAAE,uBAAiB;IACxD;wBAG4B,KAAa,EAAE,SAAa,EAAE,cAAsB;AAC9E,UAAK,AAAU,KAAK,KAAW,4CAAW,IAAM,MAAK,SAAS,EAAI;AAChE,cAAO,uBAAgB;;AAEzB,YAAO,eAAc;IACvB;;AAIE,uBAAW,cAAc;IAC3B;;AAIE,+BAAW;;IACb;;kEAlCuB,UAA2B,EAAE,WAAe;IAHjD,iBAAW;IACR,uBAAiB;IACjB,uBAAiB;AACiC,6EAAM,qCAAgB,KAAK,EAAE,2CAAI,UAAU,EAAE,WAAW,EAAE,8DAAuB,YAAY;EAAC;;;;;;;;;;;;;;;;;;;oEAqC3G,UAA2B,EAAE,WAAe;AACtG,eAAO,mDAAsB,CAAC,UAAU,EAAE,WAAW;EACvD;;MAE6C,+CAAsB;YAAG,gBAAM,sCAAgB,CAAC,UAAU,uGAA6B;;;;;AAElI,YAAO,gDAAsB;IAC/B;;;MAEI,iCAAQ;YAAG;;;;;AAEb,kBAAI,iCAAQ,GAAE;AACZ;;AAEF,wCAAW;AAEX,IAAO,oCAAiB,CAAC,0CAAY,EAAE,8CAAqB;AAC5D,IAAM,gCAAa;AACnB,IAAM,uCAAa;AACnB,IAAM,0CAAa;AACnB,IAAM,oCAAa;EACrB;;MCpMI,+BAAQ;YAAG;;;;;AAEb,kBAAI,+BAAQ,GAAE;AACZ;;AAEF,sCAAW;AAEX,IAAM,iDAAa;AACnB,IAAM,4CAAa;AACnB,IAAM,iDAAa;AACnB,IAAM,uCAAa;AACnB,IAAM,yCAAa;AACnB,IAAM,yCAAa;EACrB","file":"app_component.template.ddc.js"}');
   // Exports:
   return {
     app_component$46template: app_component$46template,
-    src__route_paths$46template: src__route_paths$46template,
     src__routes$46template: src__routes$46template
   };
 });

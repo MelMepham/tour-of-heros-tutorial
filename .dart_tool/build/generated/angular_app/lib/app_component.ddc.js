@@ -24,7 +24,7 @@ define(['dart_sdk'], function(dart_sdk) {
   }));
   dart.trackLibraries("packages/angular_app/app_component.ddc", {
     "package:angular_app/app_component.dart": app_component
-  }, '{"version":3,"sourceRoot":"","sources":["app_component.dart"],"names":[],"mappings":";;;;;;;;IAeQ;;;;;;;;eAAK,GAAG;EAEhB","file":"app_component.ddc.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["app_component.dart"],"names":[],"mappings":";;;;;;;;IAgBQ;;;;;;;;eAAK,GAAG;EAChB","file":"app_component.ddc.js"}');
   // Exports:
   return {
     app_component: app_component
