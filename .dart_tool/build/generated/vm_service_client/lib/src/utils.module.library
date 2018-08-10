@@ -1,9 +1,0 @@
-false
-stack_trace|lib/stack_trace.dart
-vm_service_client|lib/src/class.dart
-vm_service_client|lib/src/frame.dart
-vm_service_client|lib/src/function.dart
-vm_service_client|lib/src/object.dart
-vm_service_client|lib/src/script.dart
-
-
